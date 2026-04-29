@@ -16,7 +16,10 @@ export const registerUser = async (req: Request, res: Response): Promise<void> =
     });
 
     if (existingUser) {
-      res.status(400).json({ message: "User already exists" });
+      res.status(400).json({ 
+        success: false, 
+        message: "User already exists" 
+      });
       return;
     }
 
@@ -34,13 +37,17 @@ export const registerUser = async (req: Request, res: Response): Promise<void> =
 
     // 4. Send success response (but don't send the password back!)
     res.status(201).json({ 
+      success: true,
       message: "User registered successfully!", 
-      user: { id: newUser.id, email: newUser.email } 
+      data: { id: newUser.id, email: newUser.email } 
     });
 
   } catch (error) {
     console.error("Error during registration:", error);
-    res.status(500).json({ message: "Internal server error" });
+    res.status(500).json({ 
+      success: false, 
+      message: "Internal server error" 
+    });
   }
 };
 
@@ -55,7 +62,10 @@ export const loginUser = async (req: Request, res: Response): Promise<void> => {
     });
 
     if (!user) {
-      res.status(404).json({ message: "User not found!" });
+      res.status(404).json({ 
+        success: false, 
+        message: "User not found!" 
+      });
       return;
     }
 
@@ -63,7 +73,10 @@ export const loginUser = async (req: Request, res: Response): Promise<void> => {
     const isMatch = await bcrypt.compare(password, user.password);
 
     if (!isMatch) {
-      res.status(401).json({ message: "Invalid credentials" });
+      res.status(401).json({ 
+        success: false, 
+        message: "Invalid credentials" 
+      });
       return;
     }
 
@@ -76,13 +89,19 @@ export const loginUser = async (req: Request, res: Response): Promise<void> => {
 
     // 4. Send the token back to the frontend
     res.json({
+      success: true,
       message: "Successfully logged in",
-      token,
-      user: { id: user.id, email: user.email }
+      data: {
+        token,
+        user: { id: user.id, email: user.email }
+      }
     });
 
   } catch (error) {
     console.error("Error during login:", error);
-    res.status(500).json({ message: "Internal server error" });
+    res.status(500).json({ 
+      success: false, 
+      message: "Internal server error" 
+    });
   }
 };

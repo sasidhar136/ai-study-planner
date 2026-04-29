@@ -12,9 +12,15 @@ app.use(express.json());
 
 import authRoutes from "./routes/authRoutes";
 import userRoutes from "./routes/userRoutes";
+import taskRoutes from "./routes/taskRoutes";
+import scheduleRoutes from "./routes/scheduleRoutes";
+import aiRoutes from "./routes/aiRoutes";
 
 app.use("/api/auth", authRoutes);
 app.use("/api/users", userRoutes);
+app.use("/api/tasks", taskRoutes);
+app.use("/api/schedule", scheduleRoutes);
+app.use("/api/ai", aiRoutes);
 
 app.get("/api/health", (req, res) => {
   res.json({ status: "API is healthy and running" });
