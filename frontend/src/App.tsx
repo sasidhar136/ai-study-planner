@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { BrowserRouter, Routes, Route, Navigate, NavLink } from 'react-router-dom';
 import ProtectedRoute from './components/ProtectedRoute';
 import Login from './pages/Login';
@@ -13,7 +13,6 @@ import {
   MessageSquareText, 
   LogOut, 
   Menu,
-  X,
   Sun,
   Moon
 } from 'lucide-react';

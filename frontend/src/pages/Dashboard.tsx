@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import api from '../services/api';
 import { useAuthStore } from '../store/authStore';
@@ -9,7 +9,6 @@ import {
   Sparkles, 
   Clock, 
   CheckCircle2, 
-  BrainCircuit,
   TrendingUp,
   Zap,
   Target,

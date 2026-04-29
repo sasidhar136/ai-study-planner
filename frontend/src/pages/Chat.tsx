@@ -1,6 +1,6 @@
-import React, { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import api from '../services/api';
-import { Send, Bot, User, Loader2, Sparkles, BrainCircuit, Mic, Paperclip, Eraser } from 'lucide-react';
+import { Send, User, BrainCircuit, Mic, Paperclip, Eraser } from 'lucide-react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 

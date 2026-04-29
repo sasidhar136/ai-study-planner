@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import api from '../services/api';
-import { Sparkles, Calendar, Clock, Loader2, Info, ChevronRight, Wand2, CheckCircle2 } from 'lucide-react';
+import { Sparkles, Calendar, Clock, Loader2, ChevronRight, Wand2, CheckCircle2 } from 'lucide-react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 
